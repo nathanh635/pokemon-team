@@ -7,6 +7,7 @@ import PokemonCard from './PokemonCard';
 const Home = () => {
 
   const [pokemon, setPokemon] = useState([]);
+  let team = [];
 
 
     useEffect(() => {
@@ -14,18 +15,24 @@ const Home = () => {
       let ids = [];
       for(let i = 0; i<6;i++){
       ids[i] = Math.floor(Math.random() * 151) + 1;}
+     
 
       for(let i = 0; i<6; i++){
+        
       fetch(`https://pokeapi.co/api/v2/pokemon/${ids[i]}/`)
       .then(res => res.json())
       .then((data) => {
-        console.log(data);
-          setPokemon([...pokemon, data]);
+        team[i]=data;
+
     })      .catch((err) => {
       console.log(err.message);
-   });}}, []);
 
-   console.log(pokemon);
+   });}
+
+   console.log(team)
+  }, []);
+
+
 
   return (
     <>

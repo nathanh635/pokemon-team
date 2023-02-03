@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 
 
-
-import Poke from './Poke';
-
 const PokemonCard = ({id}) => {
 
   const [pokemon, setPokemon] = useState();
